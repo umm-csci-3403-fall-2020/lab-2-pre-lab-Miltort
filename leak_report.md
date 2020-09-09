@@ -1,3 +1,2 @@
 # Leak report
-
-_Use this document to describe whatever memory leaks you find in `clean_whitespace.c` and how you might fix them. You should also probably remove this explanatory text._
+The reason that there is a memory leak is that the calloc used at line 41 is never freed. It is handed up until it makes it all the way to the isclean function, but then never gets freed. I believe that is where it should be freed. 
